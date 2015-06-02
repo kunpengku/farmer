@@ -11,20 +11,20 @@
   $out_content = json_decode($output);
   $ret = $out_content->retcode;
   
-  
-<span style="font-size:18px;">$url = "http://www.xxxx.com?user=111";  
-$post_data = "somedata";  
-  
-$ch = curl_init();  
-  
-curl_setopt($ch, CURLOPT_URL, $url);  
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);  
-curl_setopt($ch, CURLOPT_HEADER, 0);  
-curl_setopt($ch , CURLOPT_POST , 1 ) ;  
-curl_setopt($ch , CURLOPT_POSTFIELDS , $post_data ) ;  
-  
-$out = curl_exec($ch);  
-curl_close($ch);  
-$obj = json_decode($out);  
-print $obj;  
-</span>
+  #php curl POST请求示例
+  <span style="font-size:18px;">$url = "http://www.xxxx.com?user=111";  
+  $post_data = "somedata";  
+    
+  $ch = curl_init();  
+    
+  curl_setopt($ch, CURLOPT_URL, $url);  
+  curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);  
+  curl_setopt($ch, CURLOPT_HEADER, 0);  
+  curl_setopt($ch , CURLOPT_POST , 1 ) ;  
+  curl_setopt($ch , CURLOPT_POSTFIELDS , $post_data ) ;  
+    
+  $out = curl_exec($ch);  
+  curl_close($ch);  
+  $obj = json_decode($out);  
+  print $obj;  
+  </span>
