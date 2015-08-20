@@ -1,5 +1,5 @@
 #include <stdio.h>
-
+//时间复杂度 平均 O(lgn)   最坏情况 O(n)
 int binary_select(int tmp[], int n, int value)
 {
     int left = 0;
