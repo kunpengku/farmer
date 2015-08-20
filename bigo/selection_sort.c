@@ -1,5 +1,5 @@
 #include <stdio.h>
-
+// 不稳定，时间复杂度 n^2
 int select_sort(int tmp[], int len)
 {
 
