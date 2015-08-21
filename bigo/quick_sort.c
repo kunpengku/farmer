@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-
+// 平均 nlogn  最差 n^2
 int quick_sort(int tmp[], int left, int right)
 
 {
