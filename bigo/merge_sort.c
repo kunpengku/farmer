@@ -1,60 +1,53 @@
-#include <stdio.h>
+#include<stdio.h>
 
-void merge_array(int a[], int  first, int mid, int last, int tmp[])
+void merge_array(int a[], int left, int mid, int right,int buf[])
 {
-    int i=first,j=mid+1;
-    int m=mid, n=last;
-    int k=0;
-    while(i<=m && j<= n)
-    {   
-        if(a[i] <= a[j])
-        {   
-            tmp[k++] = a[i++];
+    int i = left, j = mid+1;
+    int m = mid, n = right;
+    int k = 0;
+
+    while(i <= m && j <= n){    // <=
+        if(a[i] < a[j]){
+            buf[k++] = a[i++];
         }else{
-            tmp[k++] = a[j++];
+            buf[k++] = a[j++];
         }   
     }   
-    while(i<=m){
-        tmp[k++] = a[i++];
-    }   
-    while(j<=n){
-        tmp[k++] = a[j++];
+    while(i<=m)
+        buf[k++] = a[i++];
 
-    }   
+    while(j<=n)
+        buf[k++] = a[j++];
 
-    for(i=0; i< k; i++){
-        a[first + i] = tmp[i];
-    }   
-
-
+    for(i=0;i<k;i++)
+        a[left + i] = buf[i];   //a[left + 1]
 
 }
 
-void merge_sort(int a[], int left, int right, int tmp[]){
-    if(left < right)
+void merge_sort(int a[], int left, int right, int buf[])
+{
+    if(left < right)   //  <
     {   
-        int mid = (left + right)/2;
-        merge_sort(a,left,mid,tmp);
-        merge_sort(a,mid+1,right,tmp);
-        merge_array(a,left,mid,right,tmp);
+        int mid = left + ((right-left)>>1);
+        merge_sort(a, left, mid, buf);
+        merge_sort(a, mid+1, right, buf);
+
+        merge_array(a,left,mid,right,buf);
     }   
+
 }
 
-int main(){
+int main()
+{
+    int a[] = {12,2,45,-20,65,46,1,413,243,241,2,1,-3};
+    int len = sizeof(a)/sizeof(int);
+    int buf[30]={0};
 
-    int tmp[] = {1,2,5,7,1,0,2,345,15,-9,22,56,78,99};
-    int buf[100]={0};
-
-    int len = sizeof(tmp)/sizeof(int);
-    printf("len is %d\n", len);
-
-    merge_sort(tmp,0,len-1, buf);
+    merge_sort(a,0,len-1,buf);
 
     int i;
-    for ( i=0; i< len; i++)
-    {   
-        printf("%d\n", tmp[i]);
-    }   
-    return 0;
+    for(i=0;i<len;i++){
+        printf("%d\n", a[i]);
+    }
 
 }
