@@ -1,5 +1,5 @@
 #include <stdio.h>
-
+// n,   n^2,  n^2
 void insert_sort(int a[], int len)
 {
     int i,j,k;
@@ -8,7 +8,7 @@ void insert_sort(int a[], int len)
     {   
         //a[i]
         for(j = i-1; j >= 0; j--){
-            if(a[i] > a[j])
+            if(a[i] >= a[j])
                 break;
         }   
 
