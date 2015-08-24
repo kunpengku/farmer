@@ -15,7 +15,7 @@ int partition(int l,int r,int a[])
     int key=a[l],index=l;
     for(int i=l+1;i<=r;i++)
     {   
-        if(a[i]<key)
+        if(a[i]>key)
          {   
              index++;
              swap(a[index],a[i]);
