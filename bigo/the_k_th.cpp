@@ -25,7 +25,7 @@ int partition(int l,int r,int a[])
     return index;
 }
 
-void quickSort(int l, int r, int a[])
+void the_k(int l, int r, int a[])
 {
     if(l<=r)
     {   
@@ -35,9 +35,9 @@ void quickSort(int l, int r, int a[])
             printf("find %d\n",k);
 
         if(k>=l&&k<=mid-1)
-         quickSort(l,mid-1,a);
+         the_k(l,mid-1,a);
         else
-         quickSort(mid+1,r,a);
+         the_k(mid+1,r,a);
     }   
 }
 
@@ -50,7 +50,7 @@ int main()
     printf("len=%d\n",n);
     //// 因为下标是从0开始的， 所以 第k大的数字，下标是k-1
     k--;
-    quickSort(0,n-1,a);
+    the_k(0,n-1,a);
 
     for(i=0;i<n;i++)
      printf("%d ",a[i]);
