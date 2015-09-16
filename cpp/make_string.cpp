@@ -23,7 +23,7 @@ int main()
     char query_sql[1024];
     memset(query_sql, 0x00, sizeof(query_sql));
     sprintf( query_sql, " SELECT * FROM `some_table` WHERE `User_Id` = %d  " , uid );
-        
+    
     printf("%s\n", query_sql);
 
 
@@ -32,6 +32,15 @@ int main()
 
     cout << sql << endl;
 
+
+    stringstream s2; 
+    int i=123;
+
+    s2 << "nihao wo shi zz" << i;
+
+    string t = s2.str();
+
+    cout << t << endl;
 
     return 0;
 }
