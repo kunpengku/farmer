@@ -1,7 +1,7 @@
 #include <iostream>
 
 typedef struct heap HEAP;
-
+//
 struct heap
 {
     int arr[100];
