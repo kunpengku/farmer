@@ -7,38 +7,41 @@ import MySQLdb
 import json
 
 
+def parse_list(alist,oldid):
+    for item in alist:
+        if isinstance(item, dict):
+            parse_dic(item,oldid)
+
+def parse_dic(adict,oldid):
+    for key,val in adict.items():
+        if isinstance(val, list) :
+            parse_list(val,oldid)
+    
+
+        if key == 'type' and val == 'image':
+            #print key, type(val),val
+            file_path = '/image' + adict['value']
+    
+            if not os.path.exists(file_path):
+                print 'not exist',oldid,file_path
+                f.write('%s,%s\n' % ( oldid,file_path))
+
 
 def check_exist(result,f):
 
     #print result
-    content = json.loads(result['json'])
+    try:
+        content = json.loads(result['json'])
+    except:
+        return
     oldid = result['oldid']
 
-
     try:
-        body = content['body']
-        for item in body:
-
-            if item['type'] == 'image':
-                file_path = '/image' + item['value'] 
-                    
-                if not os.path.exists(file_path):
-                    print 'not exist',oldid
-                    f.write('%s,%s\n' % ( oldid,file_path))
+        parse_dic(content,oldid)
     except:
-        pass
+        print  oldid
+        raise
 
-    try:
-        analysis = content['analysis']
-        for item in body:
-            if item['type'] == 'image':
-                file_path = '/image' + item['value'] 
-                if not os.path.exists(file_path):
-                    print 'not exist',oldid
-                    f.write('%s,%s\n' % ( oldid,file_path))
-                        
-    except:
-        pass
             
 #这个程序从数据库中检查所有的记录， 把其中的图片文件，不存在的记录找出来 ，写在一个文件中。
 if __name__ == '__main__':
