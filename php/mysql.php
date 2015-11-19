@@ -18,3 +18,22 @@ while($row = mysql_fetch_array($result))
 {
   $id_array[] = $row["id"];
 }
+
+
+function fetch_all($sql, $mysql_con){
+    $result = mysql_query($sql, $mysql_con);
+    while($row = mysql_fetch_array($result)){
+        $output[] = $row;
+    }   
+
+    return $output;
+}
+
+
+
+function fetch_one($sql, $mysql_con){
+    $result = mysql_query($sql, $mysql_con);
+    $row = mysql_fetch_array($result)
+
+    return $row;
+}
