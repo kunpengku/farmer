@@ -8,7 +8,7 @@ f=open('test.xls','w')
 
 msg = '中国'
 msg = msg.encode('gb2312')
-
+#msg = msg.encode('gbk')
 f.write('%s\t%s\n' % (1,msg))
 
 f.close()
