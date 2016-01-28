@@ -4,7 +4,7 @@ public class Merge {
 	
 	static void merge(int [] arr, int left, int mid ,int right){
 		
-		int [] tmp = new int[20];
+		int [] tmp = new int[arr.length];
 		int k=0;
 		int i=left, j=mid;
 		int m=mid+1, n=right;
