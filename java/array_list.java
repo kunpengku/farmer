@@ -21,3 +21,5 @@
         
         
         ====
+        ArrayList => String []
+        String [] t = (String [])es_type.toArray(new String[0]);
