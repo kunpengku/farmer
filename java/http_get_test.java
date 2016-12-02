@@ -45,3 +45,6 @@ public static String sendGet(String url, String param) {
         System.out.println(result);
         return result;
     }
+
+ // 中文用于url中时候，需要urlencode 转码
+String   mytext   =   java.net.URLEncoder.encode("中国",   "utf-8");    
